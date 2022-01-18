@@ -4,12 +4,12 @@ import React from 'react';
 import { JSONTree } from 'react-json-tree';
 import { DetailProduct } from '../../features/ProductDetailPage/models/ProductDetail';
 
-export const DetailedView = ({data = {}, ...props}) => {
+export const DetailedView = ({data = {}, onAddToCart = () => { console.log('Add to cart called') }, ...props}) => {
     const detailedProduct = new DetailProduct(data);
 
     return (
         <Container>
-            <Box display="flex">
+            <Box display="flex" height="100%" alignItems="center" justifyContent="center">
                 <Box>
                     <img src={detailedProduct.imgUrl}/>
                 </Box>
@@ -28,7 +28,7 @@ export const DetailedView = ({data = {}, ...props}) => {
                         <Typography>Peso: {!detailedProduct.weight || detailedProduct.weight === "No informacion" ? 'No informacion' : detailedProduct.weight}</Typography>
                     </Box>
                     <Box display="flex">
-                        <Button variant='outlined'>Buy</Button>
+                        <Button variant='outlined' onClick={() => onAddToCart(detailedProduct.id)}>Buy</Button>
                     </Box>
                 </Box>
             </Box>

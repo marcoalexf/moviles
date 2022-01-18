@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchProductDetail, selectProductDetail } from '../ProductPage/productsSlice';
 import { DetailedView } from '../../components/DetailView/DetailedView';
+import { addToCart } from '../cart/cartSlice';
 
 export const ProductDetailPage = () => {
     const params = useParams();
@@ -23,7 +24,11 @@ export const ProductDetailPage = () => {
         console.log(productDetail);
     }, [productDetail])
 
+    const handleAddToCart = itemId => {
+        dispatch(addToCart(productDetail));
+    }
+
     return (
-        <DetailedView data={productDetail} />
+        <DetailedView data={productDetail} onAddToCart={() => handleAddToCart()} />
     )
 }

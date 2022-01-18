@@ -9,7 +9,7 @@ import { ProductDetailPage } from './features/ProductDetailPage/ProductDetailPag
 
 function App() {
   return (
-    <Box display="flex" flexDirection="column">
+    <Box display="flex" flexDirection="column" alignItems="center" height="100%">
       <Navbar />
       <BrowserRouter>
         <Routes>

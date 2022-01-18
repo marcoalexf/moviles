@@ -16,7 +16,7 @@ const styles = makeStyles({
 export const GridView = ({ items = [], itemClick = () => {}, ...props}) => {
     const classes = styles();
     return (
-        <Grid container spacing={2} p={1}>
+        <Grid height="100%" container spacing={2} p={1}>
             {
                 items.map(item => <Grid onClick={() => itemClick(item.id)} className={classes.hoverable} item xs={1} key={item.id}><GridItem data={item} key={item.id} onClick={() => itemClick(item)}/> </Grid>)
             }
